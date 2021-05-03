@@ -2,7 +2,15 @@ import './App.css';
 import React, { useState } from 'react';
 import Question from './components/Question';
 import Start from './components/Start';
-import quizData from './data/quiz.json';
+import _ from 'lodash';
+import { quizdata } from './data/quiz.js';
+
+const randomQuestions = _.shuffle(quizdata)
+	.slice(0, 10)
+	.map((question) => {
+		quizdata.choices = _.shuffle(question.choices);
+		return question;
+	});
 
 const App = () => {
 	const [step, setStep] = useState(1);
@@ -18,9 +26,9 @@ const App = () => {
 			{step === 1 && <Start onQuizStart={quizStartHandler} />}
 			{step === 2 && (
 				<Question
-					data={quizData.data[activeQuestion]}
+					data={randomQuestions[activeQuestion]}
 					onAnswerUpdate={setAsnwers}
-					numberOfQuestions={quizData.data.length}
+					numberOfQuestions={quizdata.length}
 					activeQuestion={activeQuestion}
 					onSetActiveQuestions={setActiveQuestion}
 					onSetStep={setStep}

@@ -1,10 +1,17 @@
 import React, {useState, useEffect, useRef} from 'react';
 
 
+
+
+
+
 const Question = ({data, onAnswerUpdate,numberOfQuestions,activeQuestion, onSetActiveQuestions,onSetStep})=>{
     const [selected,setSelected]=useState('');
     const [error,setError]= useState('');
     const radiosWrapper = useRef();
+
+    let randomData= data;
+   console.log(randomData);
 
     useEffect(()=>{
         const findCheckedInput = radiosWrapper.current.querySelector('input:checked');
@@ -31,7 +38,6 @@ const Question = ({data, onAnswerUpdate,numberOfQuestions,activeQuestion, onSetA
         }else{
             onSetStep(3);
         }
-        console.log("click");
     }
    
 
