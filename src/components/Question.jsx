@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
 
-import { formatTime } from '../functions/functions';
+import { formatTime} from '../functions/functions';
 
 
 
@@ -12,6 +12,7 @@ const Question = ({data, onAnswerUpdate,numberOfQuestions,activeQuestion, onSetA
     const [selected,setSelected]=useState('');
     const [error,setError]= useState('');
     const radiosWrapper = useRef();
+
 
    
 
@@ -54,6 +55,7 @@ const Question = ({data, onAnswerUpdate,numberOfQuestions,activeQuestion, onSetA
       <p>{numberOfQuestions}</p>
             <h2>{data.question}</h2>
             <div ref={radiosWrapper}>
+                
                 {data.choices.map((choice,i)=>(
                     <label  key={i}>
                     <input type="radio" name="answer" value={choice} onChange={changeHandler}/>

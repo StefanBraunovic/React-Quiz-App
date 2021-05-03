@@ -4,9 +4,12 @@ import Question from './components/Question';
 import Start from './components/Start';
 import End from './components/End';
 import { quizdata } from './data/quiz.js';
+import shuffle from 'shuffle-array';
 
 let interval;
 const questions = quizdata.slice(0, 10);
+shuffle(questions);
+
 const App = () => {
 	const [step, setStep] = useState(1);
 	const [activeQuestion, setActiveQuestion] = useState(0);
