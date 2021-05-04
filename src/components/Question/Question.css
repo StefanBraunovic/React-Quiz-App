@@ -6,22 +6,21 @@
 	padding: 10px;
 }
 
+.question-card {
+	padding: 100px;
+}
+
 .answers {
 	display: grid;
 	grid-template-columns: 1fr ();
 	grid-gap: 20px;
+	padding: 20px;
 }
 
 label {
 	height: 40px;
 }
 
-.buttons {
-	padding: 20px;
-	display: grid;
-	justify-content: center;
-	align-items: center;
-}
 .quit {
 	color: white;
 	background-color: red;

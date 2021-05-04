@@ -48,7 +48,7 @@ const Question = ({results,data, onAnswerUpdate,numberOfQuestions,activeQuestion
    
 
     return(
-<div>
+<div className="question-card">
     <div>
     
         <div className="question">
