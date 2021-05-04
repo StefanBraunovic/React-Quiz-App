@@ -1,19 +1,16 @@
 import React, {useState, useEffect, useRef} from 'react';
 
-import { formatTime} from '../functions/functions';
+import { formatTime } from '../../functions/functions';
+import './Question.css';
 
 
-
-
-
-
-
-const Question = ({data, onAnswerUpdate,numberOfQuestions,activeQuestion, onSetActiveQuestions,onSetStep,onReset,time,})=>{
+const Question = ({results,data, onAnswerUpdate,numberOfQuestions,activeQuestion, onSetActiveQuestions,onSetStep,onReset,time,})=>{
     const [selected,setSelected]=useState('');
     const [error,setError]= useState('');
     const radiosWrapper = useRef();
-
-
+    const [correct,setCorrect]=useState('')
+    const [uncorrect,setUnCorrect]=useState()
+  
    
 
     useEffect(()=>{
@@ -24,11 +21,16 @@ const Question = ({data, onAnswerUpdate,numberOfQuestions,activeQuestion, onSetA
     }, [data]);
 
     const changeHandler = (e) =>{
+        // let correct =0;
+        // let uncorrect = 0;
         setSelected(e.target.value);
         if(error){
             setError('')
         }
+        
     }
+
+   
 
 
     const nextClickHandler= (e) => {
@@ -49,23 +51,29 @@ const Question = ({data, onAnswerUpdate,numberOfQuestions,activeQuestion, onSetA
 <div>
     <div>
     
-        <div>
+        <div className="questions">
         <p><strong>Your time:</strong> {formatTime(time)}</p>
-        <p>{activeQuestion+1}</p>
-      <p>{numberOfQuestions}</p>
+        <p>{correct}</p>
+        
+       
             <h2>{data.question}</h2>
-            <div ref={radiosWrapper}>
+            <div className="answers" ref={radiosWrapper}>
                 
                 {data.choices.map((choice,i)=>(
-                    <label  key={i}>
-                    <input type="radio" name="answer" value={choice} onChange={changeHandler}/>
+                    <label>
+                    <input
+                  
+                     type="radio"  name="answer" value={choice}  onChange={changeHandler}/>
                     {choice}
                 </label>
                 ))}
             </div>
-            {error&& <div>{error}</div>}
+            {error&& <div className="error">{error}</div>}
+            <div className="buttons">
+
             <button onClick={nextClickHandler}>Next</button>
-            <button className="button is-success" onClick={onReset}>Quit</button>
+            <button className="quit" onClick={onReset}>Quit</button>
+            </div>
         </div>
     </div >
 

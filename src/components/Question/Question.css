@@ -1,0 +1,33 @@
+.green {
+	color: green;
+}
+
+.questions {
+	padding: 10px;
+}
+
+.answers {
+	display: grid;
+	grid-template-columns: 1fr ();
+	grid-gap: 20px;
+}
+
+label {
+	height: 40px;
+}
+
+.buttons {
+	display: flex;
+	padding: 20px;
+	justify-content: center;
+	gap: 20px;
+	height: 30px;
+}
+.quit {
+	color: white;
+	background-color: red;
+}
+
+.error {
+	color: red;
+}

@@ -1,10 +1,11 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import Question from './components/Question';
-import Start from './components/Start';
-import End from './components/End';
+import Question from './components/Question/Question';
+import Start from './components/Start/Start';
+import End from './components/End/End';
 import { quizdata } from './data/quiz.js';
 import shuffle from 'shuffle-array';
+import _ from 'lodash';
 
 let interval;
 const questions = quizdata.slice(0, 10);
@@ -53,7 +54,7 @@ const App = () => {
 			{step === 3 && (
 				<End
 					results={answers}
-					data={quizdata}
+					data={questions}
 					onReset={resetClickHandler}
 					onAnswersCheck={() => {}}
 					time={time}
