@@ -1,8 +1,9 @@
 .start-card {
 	padding: 200px;
 
-	width: 200px;
-	margin: auto;
+	/* width: 200px;
+	margin: auto; */
+	font-weight: 600;
 }
 
 .start {

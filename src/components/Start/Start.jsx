@@ -5,7 +5,7 @@ const Start = ({onQuizStart})=>{
     return (
         <div className="start-card">
             <div>
-                <div>
+                <div className="content">
                     <h4>This Marvel Quiz About The Avengers Movies Gets Increasingly Difficult — Can You Pass?</h4>
                     <p>Good luck!</p>
                     <button className="start" onClick={onQuizStart}>Start</button>

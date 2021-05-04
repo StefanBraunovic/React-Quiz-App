@@ -5,7 +5,7 @@ import Start from './components/Start/Start';
 import End from './components/End/End';
 import { quizdata } from './data/quiz.js';
 import shuffle from 'shuffle-array';
-import _ from 'lodash';
+import Modal from './components/Modal';
 
 let interval;
 const questions = quizdata.slice(0, 10);
@@ -16,6 +16,7 @@ const App = () => {
 	const [activeQuestion, setActiveQuestion] = useState(0);
 	const [answers, setAsnwers] = useState([]);
 	const [time, setTime] = useState(0);
+	const [showModal, setShowModal] = useState(false);
 
 	useEffect(() => {
 		if (step === 3) {
@@ -56,8 +57,16 @@ const App = () => {
 					results={answers}
 					data={questions}
 					onReset={resetClickHandler}
-					onAnswersCheck={() => {}}
+					onAnswersCheck={() => setShowModal(true)}
 					time={time}
+				/>
+			)}
+
+			{showModal && (
+				<Modal
+					onClose={() => setShowModal(false)}
+					results={answers}
+					data={questions}
 				/>
 			)}
 		</div>

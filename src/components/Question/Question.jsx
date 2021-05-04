@@ -51,7 +51,7 @@ const Question = ({results,data, onAnswerUpdate,numberOfQuestions,activeQuestion
 <div>
     <div>
     
-        <div className="questions">
+        <div className="question">
         <p><strong>Your time:</strong> {formatTime(time)}</p>
         <p>{correct}</p>
         
@@ -68,12 +68,12 @@ const Question = ({results,data, onAnswerUpdate,numberOfQuestions,activeQuestion
                 </label>
                 ))}
             </div>
-            {error&& <div className="error">{error}</div>}
-            <div className="buttons">
+            {error&& <div>{error}</div>}
+           
 
             <button onClick={nextClickHandler}>Next</button>
             <button className="quit" onClick={onReset}>Quit</button>
-            </div>
+           
         </div>
     </div >
 
